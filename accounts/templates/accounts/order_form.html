@@ -1,0 +1,31 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %} Order Form {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div>
+                {{ formset.management_form }}
+                {% for form in formset %}
+                    <div>
+                        {{form}}
+                        <hr>
+                    </div>
+                {% endfor %}  
+                </div>
+
+                <div>
+                    <input type="submit" name="Submit" />
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
